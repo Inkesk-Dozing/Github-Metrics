@@ -1,0 +1,34 @@
+name: Metrics
+on:
+  # 1. Update automatically every hour
+  schedule: [{cron: "0 * * * *"}]
+  # 2. Allow you to run it manually from the Actions tab for testing
+  workflow_dispatch:
+  # 3. Update when you push to the master/main branch
+  push: {branches: ["master", "main"]}
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub Token (The secret you just created)
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          user: ${{ github.repository_owner }}
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Asia/Kolkata # Customized for your location
+
+          # --- CRITICAL FOR YOU ---
+          # This enables counting commits in private repos & organizations
+          commits_authoring: yes
+          
+          # Display lines of code changed (looks very pro)
+          plugin_lines: yes
+          plugin_lines_history_limit: 1
+          plugin_lines_repositories_limit: 4
