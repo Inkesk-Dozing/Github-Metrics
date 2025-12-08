@@ -58,7 +58,7 @@ jobs:
           # Most Used Languages
           plugin_languages: yes
           # Enable the Circular Graph
-          plugin_languages_indepth: yes
+          #plugin_languages_indepth: yes
           # Increase timeout because it analyzes deeper (crucial for Indepth)
           plugin_languages_analysis_timeout: 600
           plugin_languages_recent_categories: markup, programming, data, prose
