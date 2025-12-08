@@ -1,7 +1,7 @@
 name: Metrics
 on:
   # 1. Update automatically every hour
-  schedule: [{cron: "0 0 * * *"}]
+  schedule: [{cron: "0 * * * *"}]
   # 2. Allow you to run it manually from the Actions tab for testing
   workflow_dispatch:
   # 3. Update when you push to the master/main branch
