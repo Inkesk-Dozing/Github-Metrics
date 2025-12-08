@@ -26,7 +26,7 @@ jobs:
           # --- 2. AESTHETICS (Night Owl Theme) ---
           config_theme: nightowl
           config_timezone: Asia/Kolkata
-          config_padding: 0, 10%
+          config_padding: 0, 50
 
           # Force the order so your Custom Name (Introduction) appears FIRST
           config_order: introduction, languages, lines, activity, community, repositories, metadata
@@ -34,15 +34,7 @@ jobs:
           # Custom CSS for the "Glass" Look
           extras_css: |
             svg { 
-              /* 1. Size & Box Model */
-              box-sizing: border-box;
-              width: 100%;  /* Makes it fill the available space */
-              max-width: 800px; /* Optional: Stops it from getting too huge */
-              
-              /* 2. Internal Spacing (Fixes congestion) */
-              padding: 25px; /* Adds breathing room inside the border */
-              
-              /* 3. The Border Style */
+              /* 1. The Border Style */
               border-radius: 12px; 
               border: 1px solid #7e57c2; 
               box-shadow: 0 4px 20px rgba(126, 87, 194, 0.25); 
