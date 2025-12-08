@@ -34,7 +34,6 @@ jobs:
           # Custom CSS for the "Glass" Look
           extras_css: |
             svg { 
-              /* 1. The Border Style */
               border-radius: 12px; 
               border: 1px solid #7e57c2; 
               box-shadow: 0 4px 20px rgba(126, 87, 194, 0.25); 
@@ -60,7 +59,7 @@ jobs:
           # Most Used Languages
           plugin_languages: yes
           # Enable the Circular Graph
-          plugin_languages_indepth: yes
+          plugin_languages_indepth: no
           # Increase timeout because it analyzes deeper (crucial for Indepth)
           plugin_languages_analysis_timeout: 600
           plugin_languages_recent_categories: markup, programming, data, prose
