@@ -15,20 +15,41 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          # Your GitHub Token (The secret you just created)
+          # Your GitHub Token
           token: ${{ secrets.METRICS_TOKEN }}
-
-          # Options
           user: ${{ github.repository_owner }}
-          template: classic
-          base: header, activity, community, repositories, metadata
-          config_timezone: Asia/Kolkata # Customized for your location
 
-          # --- CRITICAL FOR YOU ---
-          # This enables counting commits in private repos & organizations
-          commits_authoring: yes
+          # --- 1. AESTHETICS (Night Owl Theme) ---
+          config_theme: nightowl
+          config_timezone: Asia/Kolkata
+          config_padding: 10, 10
           
-          # Display lines of code changed (looks very pro)
+          # Custom CSS for the "Glass" Look
+          extras_css: |
+            svg { 
+              border-radius: 12px; 
+              border: 1px solid #7e57c2; 
+              box-shadow: 0 4px 20px rgba(126, 87, 194, 0.25); 
+              background-color: #011627; 
+            }
+
+          # --- 2. FORCE CUSTOM NAME (The Fix) ---
+          # This replaces the default "ABC" with "XYZ"
+          plugin_introduction: yes
+          plugin_introduction_title: "Inkesk-Dozing"  # <--- TYPE YOUR ALIAS HERE
+          plugin_introduction_text: "Extending Via OSKA | Working on eOzka" # Optional subtitle
+
+          # --- 3. DATA SECTIONS ---
+          base: header, activity, community, repositories, metadata
+          commits_authoring: yes
           plugin_lines: yes
           plugin_lines_history_limit: 1
           plugin_lines_repositories_limit: 4
+
+          # Most Used Languages
+          plugin_languages: yes
+          plugin_languages_ignored: html, css, dockerfile, makefile
+          plugin_languages_limit: 4
+          plugin_languages_sections: most-used
+          plugin_languages_colors: github
+          plugin_languages_threshold: 0%
