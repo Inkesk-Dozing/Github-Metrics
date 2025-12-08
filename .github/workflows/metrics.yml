@@ -1,7 +1,7 @@
 name: Metrics
 on:
   # 1. Update automatically every hour
-  schedule: [{cron: "0 * * * *"}]
+  schedule: [{cron: "0 0 * * *"}]
   # 2. Allow you to run it manually from the Actions tab for testing
   workflow_dispatch:
   # 3. Update when you push to the master/main branch
@@ -48,8 +48,14 @@ jobs:
 
           # Most Used Languages
           plugin_languages: yes
+          # Enable the Circular Graph
+          plugin_languages_indepth: yes
+          # Increase timeout because it analyzes deeper (crucial for Indepth)
+          plugin_languages_analysis_timeout: 15
           #plugin_languages_ignored: html, css, dockerfile, makefile
           plugin_languages_limit: 0
           plugin_languages_sections: most-used
+          # Clean up the text details to make it look neater
+          plugin_languages_details: lines, percentage
           plugin_languages_colors: github
           plugin_languages_threshold: 0%
